@@ -2,10 +2,6 @@ function solution(arr) {
   const filteredArr = new Set(arr);
   const sortedArr = [...filteredArr].sort((a, b) => a - b);
 
-  let lcm = sortedArr[0];
-  for (let i = 0; i < sortedArr.length - 1; i++) {
-    lcm = gcd(sortedArr[i + 1], lcm);
-  }
   return sortedArr.reduce((acc, cur) => (acc * cur) / gcd(acc, cur));
 }
 
