@@ -10,7 +10,7 @@ function solution(n, t, m, p) {
       if (nums.length === endIndex) break;
 
       const curNum = convertedNumArr[k];
-      isNaN(Number(curNum)) ? (nums += curNum.toUpperCase()) : (nums += curNum);
+      nums += curNum.toUpperCase();
     }
 
     if (nums.length === endIndex) break;
