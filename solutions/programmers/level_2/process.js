@@ -1,17 +1,14 @@
 function solution(priorities, location) {
     let answer = 0;
-    const dataList = new Map();
     const indexedData = priorities.map((task, i)=>{
-        dataList.set(i, task);
         return {index:i, priority:task};
     });
     
     while(true) {
-        const highestPriority = Math.max(...[...dataList.values()]);
         const curTask = indexedData.shift(); 
+        const isHighestPriority = !(indexedData.some((c)=>c.priority>curTask.priority));
         
-        if(curTask.priority===highestPriority) {
-            dataList.delete(curTask.index);
+        if(isHighestPriority) {
             answer+=1;
             if(curTask.index===location) break;
             continue;
